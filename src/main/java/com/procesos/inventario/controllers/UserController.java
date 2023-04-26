@@ -60,4 +60,19 @@ public class UserController {
         response.put("message","Hubo un error al crear el usuario");
         return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
     }
+
+
+    @PostMapping (value = "auth/login")
+    public ResponseEntity login(@RequestBody User user){
+            Map response = new HashMap();
+            try {
+                return new ResponseEntity(userServiceImp.login(user), HttpStatus.OK);
+            }catch  (Exception e){
+                response.put("status","404");
+                response.put("message",e.getMessage());
+                return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+            }
+    }
+
+
 }
