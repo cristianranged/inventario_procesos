@@ -2,16 +2,15 @@ package com.procesos.inventario.controllers;
 
 import com.procesos.inventario.models.User;
 import com.procesos.inventario.services.UserService;
-import com.procesos.inventario.services.UserServiceImp;
 import com.procesos.inventario.utils.ApiResponse;
 import com.procesos.inventario.utils.Constants;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -50,7 +49,7 @@ public class UserController {
     public ResponseEntity allUsers(){
 
         try {
-            apiResponse = new ApiResponse(Constants.REGISTER_LOGIN,userService.allUsers());
+            apiResponse = new ApiResponse(Constants.REGISTER_lIST,userService.allUsers());
             return new ResponseEntity(apiResponse,HttpStatus.OK);
         }catch(Exception e){
             apiResponse = new ApiResponse(Constants.REGISTER_NOT_FOUND,"");

@@ -24,7 +24,7 @@ public class AuthController {
 
     Map data = new HashMap<>();
 
-    @PostMapping(value = "auth/login")
+    @PostMapping(value = "login")
     public ResponseEntity login(@RequestBody User user){
 
         try {
